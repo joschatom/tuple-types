@@ -2,6 +2,14 @@
 name = "tuple-types"
 version = "0.1.0"
 edition = "2021"
+readme = "README.md"
+license = "MIT"
+authors = ["Joscha Egloff <joscha.egloff@pm.me>"]
+description = "A Rust Library that provides the functionality to extract a list of types from a Tuple."
+repository = "https://github.com/joschatom/tuple-types"
+keywords = ["tuple", "types", "nostd"]
+categories = ["no-std"]
+publish = true
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 

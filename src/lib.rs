@@ -1,3 +1,4 @@
+//! Library for getting the types of Tuple Elements.
 #![no_std]
 #![deny(unsafe_code, clippy::unwrap_used)]
 
@@ -29,7 +30,7 @@ impl Type{
     }
 }
 
-/// Extension Trait that adds the [TupleExt::types],  [TupleExt::type_ids] and [TupleExt::type_names] functions along with method with the prefix `self_`.
+/// Extension Trait that adds the [TupleExt::types],  [TupleExt::type_ids] and [TupleExt::type_names] functions along with methods with the prefix `self_`.
 pub trait TupleExt{
     /// Returns the types that make up the tuple with [TupleExt] is implemented on.
     fn types() -> Vec<crate::Type>;
