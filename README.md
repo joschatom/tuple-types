@@ -5,9 +5,7 @@
 **`Tuple-Types`** is a Rust library that allows you to exact the type from a tuple.
 
 ## Installation
-Run this command: ```sh
-cargo add tuple-types
-```
+Run this command: `cargo add tuple-types`
 
 ## Building from Source
 
