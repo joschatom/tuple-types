@@ -5,16 +5,13 @@
 **`Tuple-Types`** is a Rust library that allows you to exact the type from a tuple.
 
 ## Installation
-
-### *NOTE*: This isn't possible yet, but will soon be.
-
-```sh
+Run this command: ```sh
 cargo add tuple-types
 ```
 
 ## Building from Source
 
-First you need to clone the Reposetory, then you need to run
+First you need to clone the Repository, then you need to run
 following command: `cargo build`.
 You can also add the *`--release`* flags if you want to compile a release.
 
