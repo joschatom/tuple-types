@@ -71,3 +71,54 @@ impl_tuple_ext![T1, T2, T3, T4];
 impl_tuple_ext![T1, T2, T3, T4, T5];
 impl_tuple_ext![T1, T2, T3, T4, T5, T6];
 impl_tuple_ext![T1, T2, T3, T4, T5, T6, T7];
+
+#[cfg(test)]
+#[allow(dead_code)]
+mod tests {
+    use alloc::string::ToString as _;
+
+    use super::*;
+
+    #[test]
+    fn test_type_of() {
+        assert_eq!(Type::of::<i32>().name, "i32");
+        assert_eq!(Type::of_val(&"hello".to_string()).name, "alloc::string::String");
+    }
+
+    #[test]
+    fn test_tuple_ext() {
+        let tuple = (1, 2.0, 3, 4, "test", 6, -8);
+        assert_eq!(tuple.self_types().len(), 7);
+        assert_eq!(tuple.self_type_ids().len(), 7);
+        assert_eq!(tuple.self_type_names().len(), 7);
+    }
+
+    #[test]
+    fn test_tuple_ext_different_types() {
+        let tuple = (1, "hello", 3.14, true);
+        let types = tuple.self_types();
+        let type_names: Vec<&str> = types.iter().map(|t| t.name).collect();
+        let type_ids: Vec<TypeId> = types.iter().map(|t| t.id).collect();
+
+        assert_eq!(types.len(), 4);
+        assert_eq!(type_names, alloc::vec!["i32", "&str", "f64", "bool"]);
+        assert_eq!(type_ids.len(), 4);
+    }
+
+    #[test]
+    fn test_type_of_struct() {
+        #[derive(Debug)]
+        struct Person {
+            name: alloc::string::String,
+            age: u8,
+        }
+
+        let person: Person = Person {
+            name: "Proton".to_string(),
+            age: 14,
+        };
+
+        assert!(Type::of_val(&person).name.ends_with("test_type_of_struct::Person"));
+    }
+}
+
